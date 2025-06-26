@@ -1,0 +1,45 @@
+<div class="learning-container">
+  <div class="grid">
+    <div class="col-12">
+      <p-card header="Employee Learning & Training Summary">
+        <p-table [value]="learningData" [loading]="loading" [paginator]="true" [rows]="10" 
+                 [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                 [globalFilterFields]="['empName','trainingName','trainingCategory']">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Employee Name</th>
+              <th>Training Name</th>
+              <th>Learning Hours</th>
+              <th>Category</th>
+              <th>Completion Date</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-learning>
+            <tr>
+              <td>{{learning.empName}}</td>
+              <td>{{learning.trainingName}}</td>
+              <td>{{learning.learningHours}}</td>
+              <td>{{learning.trainingCategory}}</td>
+              <td>{{learning.completionDate}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+  </div>
+
+  <div class="grid mt-4">
+    <div class="col-12 md:col-6">
+      <p-card header="Learning Hours by Category">
+        <p-chart type="bar" [data]="categoryChartData" [options]="chartOptions"></p-chart>
+      </p-card>
+    </div>
+    <div class="col-12 md:col-6">
+      <p-card header="Training Count by Category">
+        <p-chart type="pie" [data]="countChartData" [options]="chartOptions"></p-chart>
+      </p-card>
+    </div>
+  </div>
+</div>
+
+<p-toast></p-toast>

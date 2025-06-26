@@ -1,0 +1,45 @@
+<div class="salary-container">
+  <div class="grid">
+    <div class="col-12">
+      <p-card header="Employee Salary Information">
+        <p-table [value]="employees" [loading]="loading" [paginator]="true" [rows]="10" 
+                 [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                 [globalFilterFields]="['empName','empDept','empProject']">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Employee Name</th>
+              <th>Department</th>
+              <th>Project</th>
+              <th>Salary</th>
+              <th>Experience (Years)</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-employee>
+            <tr>
+              <td>{{employee.empName}}</td>
+              <td>{{employee.empDept}}</td>
+              <td>{{employee.empProject}}</td>
+              <td>{{formatCurrency(employee.empSal)}}</td>
+              <td>{{employee.empExp}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+  </div>
+
+  <div class="grid mt-4">
+    <div class="col-12 md:col-6">
+      <p-card header="Average Salary by Department">
+        <p-chart type="bar" [data]="deptSalaryChartData" [options]="chartOptions" height="400px"></p-chart>
+      </p-card>
+    </div>
+    <div class="col-12 md:col-6">
+      <p-card header="Salary Range Distribution">
+        <p-chart type="doughnut" [data]="salaryRangeChartData" [options]="chartOptions" height="400px"></p-chart>
+      </p-card>
+    </div>
+  </div>
+</div>
+
+<p-toast></p-toast>

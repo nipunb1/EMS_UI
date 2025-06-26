@@ -1,0 +1,42 @@
+.app-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  
+  h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+  }
+}
+
+:host ::ng-deep .p-tabview {
+  .p-tabview-nav {
+    background: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+  }
+  
+  .p-tabview-nav-link {
+    font-weight: 600;
+    color: #495057;
+  }
+  
+  .p-tabview-nav-link:focus {
+    box-shadow: none;
+  }
+  
+  .p-tabview-panels {
+    padding: 20px;
+    background: #ffffff;
+  }
+}

@@ -1,0 +1,55 @@
+<div class="valueadd-container">
+  <div class="grid">
+    <div class="col-12">
+      <p-card header="Project Value Add Ideas">
+        <p-table [value]="ideas" [loading]="loading" [paginator]="true" [rows]="10" 
+                 [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                 [globalFilterFields]="['projName','ideaTitle','ideaCategory','status']">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Project Name</th>
+              <th>Idea Title</th>
+              <th>Category</th>
+              <th>Impact Level</th>
+              <th>Status</th>
+              <th>Submission Date</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-idea>
+            <tr>
+              <td>{{idea.projName}}</td>
+              <td>{{idea.ideaTitle}}</td>
+              <td>{{idea.ideaCategory}}</td>
+              <td>
+                <span class="p-tag" [ngClass]="'p-tag-' + getImpactSeverity(idea.impactLevel)">
+                  {{idea.impactLevel}}
+                </span>
+              </td>
+              <td>
+                <span class="p-tag" [ngClass]="'p-tag-' + getStatusSeverity(idea.status)">
+                  {{idea.status}}
+                </span>
+              </td>
+              <td>{{idea.submissionDate}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+  </div>
+
+  <div class="grid mt-4">
+    <div class="col-12 md:col-6">
+      <p-card header="Ideas by Impact Level">
+        <p-chart type="doughnut" [data]="impactChartData" [options]="chartOptions"></p-chart>
+      </p-card>
+    </div>
+    <div class="col-12 md:col-6">
+      <p-card header="Ideas by Category">
+        <p-chart type="bar" [data]="categoryChartData" [options]="chartOptions"></p-chart>
+      </p-card>
+    </div>
+  </div>
+</div>
+
+<p-toast></p-toast>
