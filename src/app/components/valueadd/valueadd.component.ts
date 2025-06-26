@@ -3,9 +3,10 @@ import { ValueaddService, ValueAdd, IdeaCategories } from '../../services/valuea
 import { MessageService } from 'primeng/api';
 
 @Component({
-  selector: 'app-valueadd',
-  templateUrl: './valueadd.component.html',
-  styleUrls: ['./valueadd.component.scss']
+    selector: 'app-valueadd',
+    templateUrl: './valueadd.component.html',
+    styleUrls: ['./valueadd.component.scss'],
+    standalone: false
 })
 export class ValueaddComponent implements OnInit {
   ideas: ValueAdd[] = [];

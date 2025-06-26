@@ -3,9 +3,10 @@ import { LearningService, LearningHours, CategoryData } from '../../services/lea
 import { MessageService } from 'primeng/api';
 
 @Component({
-  selector: 'app-learning',
-  templateUrl: './learning.component.html',
-  styleUrls: ['./learning.component.scss']
+    selector: 'app-learning',
+    templateUrl: './learning.component.html',
+    styleUrls: ['./learning.component.scss'],
+    standalone: false
 })
 export class LearningComponent implements OnInit {
   learningData: LearningHours[] = [];

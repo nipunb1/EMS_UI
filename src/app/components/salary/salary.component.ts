@@ -3,9 +3,10 @@ import { SalaryService, Employee, DepartmentAnalysis } from '../../services/sala
 import { MessageService } from 'primeng/api';
 
 @Component({
-  selector: 'app-salary',
-  templateUrl: './salary.component.html',
-  styleUrls: ['./salary.component.scss']
+    selector: 'app-salary',
+    templateUrl: './salary.component.html',
+    styleUrls: ['./salary.component.scss'],
+    standalone: false
 })
 export class SalaryComponent implements OnInit {
   employees: Employee[] = [];
