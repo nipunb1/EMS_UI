@@ -4,10 +4,11 @@
       <p-card header="Employee Salary Information">
         <p-table [value]="employees" [loading]="loading" [paginator]="true" [rows]="10" 
                  [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                 [globalFilterFields]="['empName','empDept','empProject']">
+                 [globalFilterFields]="['empName','empSkill','empDept','empProject']">
           <ng-template pTemplate="header">
             <tr>
               <th>Employee Name</th>
+              <th>Skill</th>
               <th>Department</th>
               <th>Project</th>
               <th>Salary</th>
@@ -17,6 +18,7 @@
           <ng-template pTemplate="body" let-employee>
             <tr>
               <td>{{employee.empName}}</td>
+              <td>{{employee.empSkill}}</td>
               <td>{{employee.empDept}}</td>
               <td>{{employee.empProject}}</td>
               <td>{{formatCurrency(employee.empSal)}}</td>

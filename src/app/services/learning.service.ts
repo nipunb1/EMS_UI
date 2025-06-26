@@ -9,6 +9,7 @@ export interface LearningHours {
   learningHours: number;
   trainingCategory: string;
   completionDate: string;
+  empSkill: string;
 }
 
 export interface CategoryData {

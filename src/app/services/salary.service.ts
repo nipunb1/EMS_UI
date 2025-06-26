@@ -9,6 +9,7 @@ export interface Employee {
   empDept: string;
   empSal: number;
   empExp: number;
+  empSkill: string;
 }
 
 export interface DepartmentAnalysis {

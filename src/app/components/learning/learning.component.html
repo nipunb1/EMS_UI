@@ -4,10 +4,11 @@
       <p-card header="Employee Learning & Training Summary">
         <p-table [value]="learningData" [loading]="loading" [paginator]="true" [rows]="10" 
                  [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                 [globalFilterFields]="['empName','trainingName','trainingCategory']">
+                 [globalFilterFields]="['empName','empSkill','trainingName','trainingCategory']">
           <ng-template pTemplate="header">
             <tr>
               <th>Employee Name</th>
+              <th>Skill</th>
               <th>Training Name</th>
               <th>Learning Hours</th>
               <th>Category</th>
@@ -17,6 +18,7 @@
           <ng-template pTemplate="body" let-learning>
             <tr>
               <td>{{learning.empName}}</td>
+              <td>{{learning.empSkill}}</td>
               <td>{{learning.trainingName}}</td>
               <td>{{learning.learningHours}}</td>
               <td>{{learning.trainingCategory}}</td>
